@@ -19,9 +19,9 @@ fn main() -> anyhow::Result<()> {
   let args: Vec<String> = std::env::args().collect();
 
   if args.len() > 1 {
-      let command = &args[1];
-      db::save(&conn, command)?;
-      run_command(command)?;
+      let command = args[1..].join(" ");
+      db::save(&conn, &command)?;
+      run_command(&command)?;
   } else {
       // no argument → open fzf picker
       let snippets = db::list(&conn)?;
