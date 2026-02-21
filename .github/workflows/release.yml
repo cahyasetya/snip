@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   release:
-    uses: cahyasetya/homebrew-tap/.github/workflows/release.yml@main
+    uses: cahyasetya/homebrew-tap/.github/workflows/release.yml@master
     with:
       binary_name: snip
       description: "Save and re-run shell commands with an interactive picker"
