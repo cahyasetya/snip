@@ -30,14 +30,14 @@ fn main() -> anyhow::Result<()> {
           return Ok(());
       }
 
-      match picker::pick(snippets) {
+      match picker::pick(&conn, snippets)? {
           Some(selected) => {
               let success = run_command(&selected.command)?;
               if !success {
                   println!("command exited with non-zero status");
               }
           }
-          None => println!("cancelled"),
+          None => {}
       }
   }
 
