@@ -37,7 +37,7 @@ jobs:
       - name: Install cargo-release
         uses: taiki-e/install-action@v2
         with:
-          tool: cargo-release@0.27.8
+          tool: cargo-release
 
       - name: Run cargo release
         env:
