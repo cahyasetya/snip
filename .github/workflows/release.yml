@@ -1,0 +1,18 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    uses: cahyasetya/homebrew-tap/.github/workflows/release.yml@main
+    with:
+      binary_name: snip
+      description: "Save and re-run shell commands with an interactive picker"
+    secrets:
+      HOMEBREW_TAP_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
