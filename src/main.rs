@@ -7,9 +7,9 @@ fn run_command(command: &str) -> anyhow::Result<bool> {
   let shell = std::env::var("SHELL").unwrap_or_else(|_| "/bin/sh".to_string());
 
   let status = Command::new(&shell)
-  .arg("-i")
   .arg("-c")
   .arg(command)
+  .env("CLICOLOR", "1")
   .status()?;
 
   Ok(status.success())
